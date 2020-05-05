@@ -10,14 +10,19 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.GradientDrawable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GradientUtils {
 
-    public Bitmap getGradient() {
+    List<String> gradient_list = new ArrayList<>();
 
-        int width = MetricsUtils.getScreenWidth();
-        int height = MetricsUtils.getScreenHeight();
+    public Bitmap getGradient(int width1, int height1) {
 
-        Bitmap output = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        /*int width = MetricsUtils.getScreenWidth();
+        int height = MetricsUtils.getScreenHeight();*/
+
+        Bitmap output = Bitmap.createBitmap(width1, height1, Bitmap.Config.ARGB_8888);
 
         /*GradientDrawable gradientDrawable = new GradientDrawable();
 
@@ -42,11 +47,14 @@ public class GradientUtils {
 
         Canvas canvas = new Canvas(output);
 
-        canvas.drawRect(new RectF(0, 0, width, height), p);
+        canvas.drawRect(new RectF(0, 0, width1, height1), p);
 
         //canvas.drawBitmap(output, new Matrix(), p);
         //gradientDrawable.draw(canvas);
 
         return output;
+    }
+    public void insertGradient(List<String> gradient_list1,String gradient){
+        gradient_list1.add(gradient);
     }
 }
